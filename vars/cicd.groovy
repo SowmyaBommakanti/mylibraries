@@ -8,7 +8,7 @@ def buildArtifact()
 }
 def deployTomcat(jobname,ip,context)
 {
-  sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war ubuntu@${ip}:/var/lib/tomcat10/webapps/${context}.war"
+  sh "deploy adapters: [tomcat9(credentialsId: ${3fc91db5-bad6-498b-8a31-3c19b30e6cbd}, path: '', url: ${http://172.31.83.236:8080})], contextPath: ${testapp}, war: '**/*.war'"
 }
 def runSelenium(jobname)
 {
